@@ -1,0 +1,27 @@
+.contact_form{
+    
+    background-image: url('../../../images/security\ \(2\).jpg');
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100vw;
+    z-index:0;
+   
+}
+.contact_form::before{
+    z-index:-1;
+    content:'';
+    background-color:  #3A4256;
+    opacity:.8;
+    height: 100%;
+    width: 100%;
+   position: absolute;
+
+}
+
+    
+    
+
+.massage{
+    height: 100px;
+}

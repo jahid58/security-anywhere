@@ -1,0 +1,15 @@
+.headings{
+    height: 100vh;
+    background-color: rgb(216, 229, 233);
+    padding: 20px;
+}
+.headings > .btn{
+color: #301805;
+font-weight: 600;
+}
+@media screen and (max-width: 480px) {
+    .headings {
+     height: 150px;
+     text-align: center;
+    }
+  }

@@ -1,0 +1,18 @@
+.head{
+    background-color: darkslategrey;
+}
+.head p{
+    width: 15vw;
+    color: rgb(239, 243, 237);
+}
+.item_info {
+    background-color: whitesmoke;
+    margin-top: 5px;
+}
+.item_info p{
+    width: 15vw;
+    color: rgb(41, 29, 53);
+    font-weight: 700;
+   
+    
+}
