@@ -2,7 +2,7 @@ import React from 'react';
 
 const InfoCard = ({info}) => {
     return (
-       <div className="col-md-4 col-sm-6 my-5">
+       <div className="col-md-4 col-sm-6 my-2">
 
            <div className="p-3 text-center">
               

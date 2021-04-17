@@ -23,10 +23,13 @@ const AboutUs = () => {
     }
     ]
     return (
-        <div className='row bg_special'>
+        <div className=' bg_special text-center'>
+              <h2 className='text-bluer'>About US</h2 >
+            <div className='row'>
             {
                 ourInfo.map(info => <InfoCard info={info}></InfoCard>)
             }
+            </div>
         </div>
     );
 };

@@ -30,9 +30,13 @@ const HiringList = () => {
       <div
         className="col-md-9"
       >
-        <div className="row m-4" >
-          {!hiredService.length && <h4>You didn't buy any service</h4>}
-          {hiredService.length &&
+        <div className=" m-4 text-center" >
+          {!hiredService.length?
+          <h2 className='text-warning'>You didn't buy any service</h2>:
+          <h2 className='text-warning'>Your services</h2>
+          }
+        <div className="row">
+        {hiredService.length &&
             hiredService.map((service) => (
               <HiredCard
                 hired={service}
@@ -40,6 +44,7 @@ const HiringList = () => {
                 key={service._id}
               ></HiredCard>
             ))}
+        </div>
         </div>
       </div>
     </div>

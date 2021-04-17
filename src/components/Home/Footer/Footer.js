@@ -35,10 +35,7 @@ const Footer = () => {
           />
           <FooterCol key={2} menuTitle="Services" menuItems={services} />
           <FooterCol key={4} menuTitle="Branches" menuItems={address}>
-            <div className="mt-5">
-              <h6>Call now</h6>
-              <button className="btn btn-brand">+234897435</button>
-            </div>
+            
           </FooterCol>
         </div>
         <div className="copyRight text-center">

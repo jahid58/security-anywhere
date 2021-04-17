@@ -4,7 +4,11 @@
   cursor: pointer;
   transition-duration: 1s;
 }
-
+.services-container h3{
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+}
 .animation {
   position: relative;
 }

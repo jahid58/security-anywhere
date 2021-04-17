@@ -62,11 +62,10 @@ const HiredService = () => {
                         <td>{service.service}</td>
                         <td>{service.name}</td>
                         <td>{service.email}</td>
-                        <td><select onChange={(e)=>{
+                        <td><select onMouseOut={(e)=>{
                             setHiredId(service.id)
                             handleStatus(e)
                         }} className='btn btn-success'>
-                            <option value="Status" > Status</option>
                             <option value="Done" > Done</option>
                             <option value='Pending'  >Pending</option>
                             <option value="On going" > On going</option>
