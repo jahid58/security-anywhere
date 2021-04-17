@@ -1,14 +1,14 @@
+import { ContactSupportOutlined } from '@material-ui/icons';
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import AdminPanel from '../AdminPanel/AdminPanel';
 
 
 const HiredService = () => {
-    const {user,status} = useContext(UserContext);
-    const [loggedInUser,setLoggedInUser] = user;
-    const [serviceStatus,setServiceStatus] = status
-     
+   const [loggedInUser,setLoggedInUser]  = useContext(UserContext);
+    const [serviceStatus,setServiceStatus] = useState({})
     const  [hiredService,setHiredService] = useState([])
+
     useEffect(()=>{
         fetch('https://fierce-garden-72152.herokuapp.com/hiredServices', {
             method: 'POST',
@@ -21,11 +21,21 @@ const HiredService = () => {
     const [hiredId, setHiredId] = useState('')
 
     const handleStatus = (e) =>{
-       const newStatus =[...serviceStatus,{id:hiredId,status:e.target.value}]
-       newStatus.id = hiredId;
-       newStatus.status = e.target.value
-       setServiceStatus(newStatus)
-       console.log(newStatus)
+       if(hiredId){
+        const newStatus ={id:hiredId,status:e.target.value}
+        setServiceStatus(newStatus)
+         if(serviceStatus){
+            fetch('https://fierce-garden-72152.herokuapp.com/addServiceStatus',
+            {
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(serviceStatus)
+        })
+         }
+       
+       }
     }
 
     return (
@@ -53,9 +63,10 @@ const HiredService = () => {
                         <td>{service.name}</td>
                         <td>{service.email}</td>
                         <td><select onChange={(e)=>{
-                            setHiredId(service._id)
+                            setHiredId(service.id)
                             handleStatus(e)
                         }} className='btn btn-success'>
+                            <option value="Status" > Status</option>
                             <option value="Done" > Done</option>
                             <option value='Pending'  >Pending</option>
                             <option value="On going" > On going</option>

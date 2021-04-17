@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
-import  firebase from "firebase/app";
+import React, { useContext } from "react";
+import firebase from "firebase/app";
 import "firebase/auth";
-import { useHistory, useLocation } from 'react-router-dom';
-import firebaseConfig from './firebaseConfig';
-import { UserContext } from '../../../App';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import bgImg from '../../../images/header_bg.jpg'
+import { useHistory, useLocation } from "react-router-dom";
+import firebaseConfig from "./firebaseConfig";
+import { UserContext } from "../../../App";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../../../images/logo.png";
 
 const Login = () => {
-  const {user} = useContext(UserContext);
-  const [loggedInUser,setLoggedInUser] = user;
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
@@ -20,41 +19,40 @@ const Login = () => {
   }
 
   const handleGoogleSignIn = () => {
-
     var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-      const { displayName, email,error } = result.user;
-      const signedInUser = { name: displayName, email }
-      setLoggedInUser(signedInUser)
-      if(!error){
-        history.replace(from)
-      }
-      
-    }).catch(function (error) {
-      const errorMessage = error.message;
-      console.log(errorMessage);
-    });
-  }
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (result) {
+        const { displayName, email, error } = result.user;
+        const signedInUser = { name: displayName, email };
+        setLoggedInUser(signedInUser);
+        if (!error) {
+          history.replace(from);
+        }
+      })
+      .catch(function (error) {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
 
- 
   return (
-    <div className='p-5 d-flex justify-content-center align-items-center' 
-    style={{backgroundImage:`url(${bgImg})`,backgroundSize:'cover' ,height:'100vh'} }>
-   
-        <div className="shadow p-5 text-center bg-light rounded" style={{minWidth:'350px'}}>
-            <input type="text" className="form-control my-4" placeholder='email' />
-            <input type="password" className="form-control my-4" placeholder='password'/>
-          
-          
-         <button className="btn btn-primary my-1">Sign in</button><br/>
-         
-            <button className="btn btn-success" onClick={handleGoogleSignIn}>
-              <FontAwesomeIcon icon={faGoogle} style={{color:'blue'}}/> Google Sign in</button>
-          </div> 
-        </div>
-        
- 
-    
+    <div className="p-5 d-flex justify-content-center align-items-center bg-light">
+      <div className="shadow p-5 text-center rounded">
+        {" "}
+        <h2 className="text-success">Security Anywhere</h2>
+        <img src={logo} style={{ width: "60px" }} alt="" />
+        <h3> Login With </h3>
+        <button className="btn btn-secondary " onClick={handleGoogleSignIn}>
+          <FontAwesomeIcon icon={faGoogle} style={{ color: "blue" }} /> Continue
+          with Google
+        </button>
+        <p>
+          Don't have an account <a href="#">Create an account</a>
+        </p>
+      </div>
+    </div>
   );
 };
 

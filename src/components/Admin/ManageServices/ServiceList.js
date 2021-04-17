@@ -15,7 +15,7 @@ const ServiceList = (props) => {
       
   };
   return (
-    <div className="item_info d-flex justify-content-between p-3">
+    <div className="item_info d-flex  justify-content-between p-3">
       <p>{name}</p>
       <p>{price}</p>
       <p style={{cursor:'pointer'}}>

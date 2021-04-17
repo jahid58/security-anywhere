@@ -12,14 +12,13 @@ import HiredService from "./components/Admin/HiredService/HiredService";
 import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
 import AddService from "./components/Admin/AddService/AddService";
 import ManageServices from "./components/Admin/ManageServices/ManageServices";
-import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute'
+import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [serviceStatus,setServiceStatus] = useState([])
   return (
-    <UserContext.Provider    value={{ user: [loggedInUser, setLoggedInUser], status: [serviceStatus, setServiceStatus] }}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Route>
           <Navbar></Navbar>

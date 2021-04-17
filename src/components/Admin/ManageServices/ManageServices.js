@@ -11,7 +11,7 @@ const ManageServices = () => {
     },[])
     return (
        <div className='row'>
-         <div className="col-md-3"><AdminPanel></AdminPanel></div>
+         <div className="col-md-3 "><AdminPanel></AdminPanel></div>
          <div className="col-md-9">
          <div className="manage p-5">
         <div className="head d-flex justify-content-between p-3">

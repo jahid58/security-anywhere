@@ -1,7 +1,7 @@
 .headings{
     height: 100vh;
     background-color: rgb(216, 229, 233);
-    padding: 20px;
+    padding: 5%;
 }
 .headings > .btn{
 color: #301805;
@@ -13,7 +13,7 @@ background: linear-gradient(45deg, #6b6c7a , #004e92);
 }
 @media screen and (max-width: 480px) {
     .headings {
-     height: 150px;
+     height: 250px;
      text-align: center;
     }
   }

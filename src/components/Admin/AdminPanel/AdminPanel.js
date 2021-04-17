@@ -12,8 +12,8 @@ import './AdminPanel.css'
 
 const AdminPanel = () => {
   const history = useHistory()
-  const {user} = useContext(UserContext);
-  const [loggedInUser,setLoggedInUser] = user;
+  
+  const [loggedInUser,setLoggedInUser] =  useContext(UserContext);
   const  [isAdmin,setIsAdmin] = useState(false)
   useEffect(()=>{
       fetch('https://fierce-garden-72152.herokuapp.com/isAdmin', {
