@@ -5,15 +5,31 @@ import {
   faShoppingBasket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { UserContext } from "../../../App";
 import './AdminPanel.css'
 
 const AdminPanel = () => {
   const history = useHistory()
+  const {user} = useContext(UserContext);
+  const [loggedInUser,setLoggedInUser] = user;
+  const  [isAdmin,setIsAdmin] = useState(false)
+  useEffect(()=>{
+      fetch('https://fierce-garden-72152.herokuapp.com/isAdmin', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json'},
+          body: JSON.stringify({email:loggedInUser.email})
+      })
+      .then(res=>res.json())
+      .then(data=>setIsAdmin(data))
+     
+  },[loggedInUser])
   return (
     <div className="dashboard">
-        <div className="headings">
+        {
+          isAdmin &&
+          <div className="headings">
           <button className="btn " onClick={()=>history.push('/hiredService')}>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> Hired List
           </button><br/>
@@ -29,6 +45,10 @@ const AdminPanel = () => {
             <FontAwesomeIcon icon={faWindows}></FontAwesomeIcon> Manage services
           </button>
         </div>
+        }
+        {
+          !isAdmin && <div className='text-center'><h1>  Ops ! </h1></div>
+        }
        
     </div>
   );

@@ -12,13 +12,14 @@ import HiredService from "./components/Admin/HiredService/HiredService";
 import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
 import AddService from "./components/Admin/AddService/AddService";
 import ManageServices from "./components/Admin/ManageServices/ManageServices";
-
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute'
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [serviceStatus,setServiceStatus] = useState([])
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider    value={{ user: [loggedInUser, setLoggedInUser], status: [serviceStatus, setServiceStatus] }}>
       <Router>
         <Route>
           <Navbar></Navbar>
@@ -27,33 +28,39 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <AdminPanel></AdminPanel>
-          </Route>
-          <Route path="/hire/:id">
+          </PrivateRoute>
+          <PrivateRoute path="/hire/:id">
             <Hire />
-          </Route>
-          <Route path="/hiringList">
+          </PrivateRoute>
+          <PrivateRoute path="/hire">
+            <Hire />
+          </PrivateRoute>
+          <PrivateRoute path="/hiringList">
             <HiringList></HiringList>
-          </Route>
-          <Route path="/review">
+          </PrivateRoute>
+          <PrivateRoute path="/review">
             <Review></Review>
-          </Route>
-          <Route path="/hiredService">
+          </PrivateRoute>
+          <PrivateRoute path="/hiredService">
             <HiredService></HiredService>
-          </Route>
-          <Route path="/makeAdmin">
+          </PrivateRoute>
+          <PrivateRoute path="/makeAdmin">
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path="/addService">
+          </PrivateRoute>
+          <PrivateRoute path="/addService">
             <AddService></AddService>
-          </Route>
-          <Route path="/manageServices">
+          </PrivateRoute>
+          <PrivateRoute path="/manageServices">
             <ManageServices></ManageServices>
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

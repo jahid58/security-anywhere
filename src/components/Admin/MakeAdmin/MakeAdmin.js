@@ -11,7 +11,7 @@ const MakeAdmin = () => {
             email: data.email,
         }
       
-         fetch('http://localhost:5000/addAdmin',
+         fetch('https://fierce-garden-72152.herokuapp.com/addAdmin',
        {
            method:'POST',
                headers:{

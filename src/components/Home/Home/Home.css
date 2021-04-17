@@ -13,4 +13,24 @@
 .bg_darker{
     background-color: rgb(197, 204, 209);
 }
+.bg-review{
+    background-color:rgb(92, 34, 34) ;
+}
 
+.headers {
+    background: url("../../../images/login_bg.jpg");
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+  }
+  .headers::before {
+    z-index: -1;
+    background-color:#200371;
+    opacity: 0.8;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }

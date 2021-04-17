@@ -1,0 +1,23 @@
+.service{
+    background-color: rgb(197, 204, 209);
+    margin: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition-duration: s;
+}
+.service h6{
+   transition-duration: 1s;
+}
+.service:hover{
+    background-color: rgb(206, 221, 120);
+    transform: translateY(-25px);
+   
+}
+
+.service:hover h6{
+    color: rgb(104, 3, 70);
+    display: block;
+    font-size: 25px;
+    font-weight: 800;
+    transform: rotate(360deg);
+}

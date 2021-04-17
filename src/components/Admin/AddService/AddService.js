@@ -8,6 +8,7 @@ const AddService = () => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo);
+        console.log(info)
     }
 
     const handleFileChange = (e) => {
@@ -17,13 +18,12 @@ const AddService = () => {
 
     const handleSubmit = (e) => {
         const formData = new FormData()
-        console.log(info);
         formData.append('file', file);
         formData.append('name', info.name);
-        formData.append('price', info.price);
         formData.append('description', info.description);
-
-        fetch('http://localhost:5000/addService', {
+        formData.append('price', info.price);
+       
+        fetch('https://fierce-garden-72152.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
@@ -35,7 +35,7 @@ const AddService = () => {
                 console.error(error)
             })
             e.preventDefault()
-            e.target.reset()
+            
     }
 
     return (
@@ -54,7 +54,7 @@ const AddService = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Hiring Price</label>
-                    <input onBlur={handleBlur} type="number" className="form-control" name="price" placeholder="pricing" />
+                    <input onBlur={handleBlur} type="text" className="form-control" name="price" placeholder="price" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Upload a image</label>

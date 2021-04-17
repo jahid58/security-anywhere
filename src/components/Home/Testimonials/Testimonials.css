@@ -1,0 +1,25 @@
+.testimonials{
+    background-color: rgb(182, 216, 169);
+    text-align: center;
+}
+
+.testimonials .card{
+    border-color: transparent;
+    background-color: rgb(4, 134, 134);
+    color: white;
+    margin: 20px;
+   
+}
+
+.testimonials .card .card-footer{
+    background: transparent;
+    border: 0;
+}
+.card{
+ min-width: 300px;
+}
+ h2{
+color: rgb(7, 7, 37);
+padding: 20px;
+font-weight: 700;
+}

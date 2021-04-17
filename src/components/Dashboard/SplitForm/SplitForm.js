@@ -42,33 +42,30 @@ const SplitForm = ({client}) => {
   const [hiredServiceInfo,setHiredServiceInfo] = useState({})
    const [err,setError] = useState('')
 
-  const handleSubmit = async event => {
+  
+   const handlePayment = async event => {
     event.preventDefault();
 
     if (!stripe || !elements) {
+      // Stripe.js has not loaded yet. Make sure to disable
+      // form submission until Stripe.js has loaded.
       return;
     }
-     const {error, paymentMethod} = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardNumberElement)
-    });
-   if(error){
-       setError(error.message)
-    
-   }else{
-     history.push('/hiringList')
-   
-   }
+
     const payload = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardNumberElement)
     });
+  
+ 
     setHiredServiceInfo({id:payload.paymentMethod.id,...client,card:payload.paymentMethod.card})
-    
+   if(!payload.error){
+     history.push('/hiringList')
+   }
   };
 useEffect(()=>{
   if(hiredServiceInfo.id){
-    fetch('http://localhost:5000/addHiredService',
+    fetch('https://fierce-garden-72152.herokuapp.com/addHiredService',
   {
       method:'POST',
           headers:{
@@ -79,8 +76,9 @@ useEffect(()=>{
   .then(res=>console.log(res))
   }
 },[hiredServiceInfo])
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handlePayment}>
       <label>
         Card number
         <CardNumberElement

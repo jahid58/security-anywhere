@@ -6,11 +6,12 @@ const ServiceList = (props) => {
   const { name, price, _id } = props.service;
   const history = useHistory()
   const handleDelete = (e) => {
-    fetch("http://localhost:5000/delete/" + _id, {
+    fetch("https://fierce-garden-72152.herokuapp.com/delete/" + _id, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((res) => history.push('/home'));
+      e.preventDefault()
       
   };
   return (

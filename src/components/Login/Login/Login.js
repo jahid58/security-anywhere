@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import bgImg from '../../../images/header_bg.jpg'
 
 const Login = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const {user} = useContext(UserContext);
+  const [loggedInUser,setLoggedInUser] = user;
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
@@ -19,28 +20,23 @@ const Login = () => {
   }
 
   const handleGoogleSignIn = () => {
+
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
-      const { displayName, email } = result.user;
+      const { displayName, email,error } = result.user;
       const signedInUser = { name: displayName, email }
-      setLoggedInUser(signedInUser);
-      storeAuthToken();
+      setLoggedInUser(signedInUser)
+      if(!error){
+        history.replace(from)
+      }
+      
     }).catch(function (error) {
       const errorMessage = error.message;
       console.log(errorMessage);
     });
   }
 
-  const storeAuthToken = () => {
-    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-      .then(function (idToken) {
-        sessionStorage.setItem('token', idToken);
-        history.replace(from);
-      }).catch(function (error) {
-        // Handle error
-      });
-  }
-
+ 
   return (
     <div className='p-5 d-flex justify-content-center align-items-center' 
     style={{backgroundImage:`url(${bgImg})`,backgroundSize:'cover' ,height:'100vh'} }>
