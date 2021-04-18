@@ -34,6 +34,7 @@ const Hire = () => {
       </div>
 
       <div className="user col-md-4 p-5">
+      <h4 className="my-3 text-primary">Hire Us</h4>
         <form action="">
           <input
             type="text"

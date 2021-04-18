@@ -37,7 +37,8 @@ const HiredService = () => {
     return (
         <div className='row'>
             <div className="col-md-3"><AdminPanel></AdminPanel></div>
-            <div className="col-md-9">
+            <div className="col-md-9"> 
+            <h4 className="m-3 text-primary">Hired Services</h4>
             <table className="table table-borderless">
             <thead>
                 <tr>

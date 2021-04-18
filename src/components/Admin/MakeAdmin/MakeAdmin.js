@@ -28,6 +28,7 @@ const MakeAdmin = () => {
              <AdminPanel></AdminPanel>
          </div>
          <div className="col-md-9 add_admin">
+         <h4 className="m-2 text-primary">Make  Admin</h4>
       <form onSubmit={handleSubmit(onSubmit)} >
       <br/><br/>
       <input placeholder='Name' className='form-control input' type='text' {...register('name', { required: true })} /> <br/><br/>

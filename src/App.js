@@ -35,10 +35,10 @@ function App() {
             <Login></Login>
           </Route>
           <PrivateRoute path="/dashboard">
-            <Sidebar></Sidebar>
+            <HiringList></HiringList>
           </PrivateRoute>
           <PrivateRoute path="/admin">
-            <AdminPanel></AdminPanel>
+            <HiredService></HiredService>
           </PrivateRoute>
           <PrivateRoute path="/hire/:id">
             <Hire />
