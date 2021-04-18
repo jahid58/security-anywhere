@@ -18,6 +18,7 @@ const Review = () => {
       },
       body: JSON.stringify(userReview),
     }).then((res) => console.log(res));
+    reset({})
   };
 
   return (

@@ -35,6 +35,7 @@ const AddService = () => {
         console.error(error);
       });
     e.preventDefault();
+    e.target.reset()
   };
 
   return (

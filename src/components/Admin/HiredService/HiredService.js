@@ -1,4 +1,3 @@
-import { ContactSupportOutlined } from '@material-ui/icons';
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import AdminPanel from '../AdminPanel/AdminPanel';
