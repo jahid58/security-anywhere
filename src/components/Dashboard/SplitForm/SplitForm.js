@@ -102,6 +102,7 @@ const SplitForm = ({ client }) => {
       >
         Pay
       </button>
+     
       {error && <p style={{ color: "red" }}>{error}</p>}
     </form>
   );

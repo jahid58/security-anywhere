@@ -23,7 +23,6 @@ const Hire = () => {
         }
    setClientData({ ...userInfo });
         setServiceData(data)
-console.log(clientData)
       })
      
   }, []);
@@ -59,6 +58,7 @@ console.log(clientData)
           />
           {/* <input type="submit" value='submit your data' className='btn bg-primary' name='submit'/> */}
         </form>
+        <p className='text-primary'>Your service charged will be $ {serviceData.price} </p>
         <h5>Pay with</h5>
         <div class="form-check">
           

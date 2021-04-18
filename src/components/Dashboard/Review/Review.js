@@ -22,7 +22,7 @@ const Review = () => {
   };
 
   return (
-    <div className="row" style={{ backgroundColor: "#2C5F2D" }}>
+    <div className="row" style={{ backgroundColor: "lightblue" }}>
       <div className="col-md-3">
         <Sidebar></Sidebar>
       </div>

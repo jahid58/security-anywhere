@@ -58,7 +58,7 @@ const HiredService = () => {
                         <td>{service.service}</td>
                         <td>{service.name}</td>
                         <td>{service.email}</td>
-                        <td><select onMouseOut={(e)=>{
+                        <td><select onMouseOut ={(e)=>{
                             setHiredId(service.id)
                             handleStatus(e)
                         }} className='btn btn-success'>
