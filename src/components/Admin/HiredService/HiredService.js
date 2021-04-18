@@ -5,7 +5,6 @@ import AdminPanel from '../AdminPanel/AdminPanel';
 
 const HiredService = () => {
    const [loggedInUser,setLoggedInUser]  = useContext(UserContext);
-    const [serviceStatus,setServiceStatus] = useState({})
     const  [hiredService,setHiredService] = useState([])
 
     useEffect(()=>{
@@ -21,21 +20,19 @@ const HiredService = () => {
 
     const handleStatus = (e) =>{
        if(hiredId){
-        const newStatus ={id:hiredId,status:e.target.value}
-        setServiceStatus(newStatus)
-         if(serviceStatus){
-            fetch('https://fierce-garden-72152.herokuapp.com/addServiceStatus',
+        const newStatus ={status:e.target.value}
+            fetch('https://fierce-garden-72152.herokuapp.com/updateStatus/'+hiredId,
             {
-                method:'POST',
+                method:'PATCH',
                 headers:{
                     'content-type':'application/json'
                 },
-                body:JSON.stringify(serviceStatus)
+                body:JSON.stringify(newStatus)
         })
          }
        
        }
-    }
+    
 
     return (
         <div className='row'>

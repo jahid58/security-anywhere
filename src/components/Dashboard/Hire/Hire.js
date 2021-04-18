@@ -18,7 +18,9 @@ const Hire = () => {
           name: loggedInUser.name,
           email: loggedInUser.email,
           service: data.name,
-          hiredPrice: data.price,}
+          hiredPrice: data.price,
+          status:'Pending'
+        }
    setClientData({ ...userInfo });
         setServiceData(data)
 console.log(clientData)

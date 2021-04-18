@@ -26,28 +26,28 @@ const AdminPanel = () => {
      
   },[loggedInUser])
   return (
-    <div className="dashboard">
+    <div >
         {
           isAdmin &&
-          <div className="headings">
+          <div className="dashboard">
           <button className="btn " onClick={()=>history.push('/hiredService')}>
-            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> Hired List
+            <FontAwesomeIcon className='text-light' icon={faShoppingBasket}></FontAwesomeIcon> Hired List
           </button><br/>
           <button className="btn " onClick={()=>history.push('/addService')}>
-            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon> Add Service
+            <FontAwesomeIcon className='text-light'  icon={faPlus}></FontAwesomeIcon> Add Service
            
           </button><br/>
           <button className="btn " onClick={()=>history.push('/makeAdmin')}>
-            <FontAwesomeIcon icon={faPeopleArrows}></FontAwesomeIcon> Make admin
+            <FontAwesomeIcon className='text-light'  icon={faPeopleArrows}></FontAwesomeIcon> Make admin
           </button>
           <br/>
           <button className="btn " onClick={()=>history.push('/manageServices')}>
-            <FontAwesomeIcon icon={faWindows}></FontAwesomeIcon> Manage services
+            <FontAwesomeIcon className='text-light'  icon={faWindows}></FontAwesomeIcon> Manage services
           </button>
         </div>
         }
         {
-          !isAdmin && <div className='text-center'><h1>  Ops ! </h1></div>
+          !isAdmin && <div className='text-center text-primary mt-5'><h1>  Sorry, You Are Not Allowed to Access This Page</h1></div>
         }
        
     </div>

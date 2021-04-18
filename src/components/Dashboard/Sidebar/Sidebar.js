@@ -6,15 +6,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useHistory } from "react-router";
-
+import { useHistory } from "react-router";   
 import './Sidebar.css'
 
 const Sidebar = () => {
     const history = useHistory()
   return (
-    <div className="dashboard">
-        <div className="headings ">
+    <div>
+        <div className="dashboard ">
           <button className="btn " onClick={()=>history.push('/hire')}>
             <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Hire
           </button><br/>

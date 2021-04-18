@@ -49,7 +49,7 @@ const Login = () => {
           with Google
         </button>
         <p>
-          Don't have an account <a href="#">Create an account</a>
+          Don't have an account <a href="/#">Create an account</a>
         </p>
       </div>
     </div>

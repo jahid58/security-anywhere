@@ -1,20 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const HiredCard = ({ hired, statuses }) => {
-  const { service, id, image } = hired;
-  const [status, setStatus] = useState({});
-
-  useEffect(() => {
-    if (statuses) {
-      const st = statuses
-        .slice()
-        .reverse()
-        .find((sv) => {
-          return sv.id === id;
-        });
-      setStatus(st);
-    }
-  }, [statuses]);
+const HiredCard = ({ hired }) => {
+  const { service, id, image,status } = hired;
+  
 
   return (
     <div className="col-md-4 text-secondary ">
@@ -24,7 +12,7 @@ const HiredCard = ({ hired, statuses }) => {
           {status && (
             <h6 className=" bg-success text-white m-2 p-2">
               {" "}
-              status: {status.status || "Done"}{" "}
+              status: {status || "Done"}{" "}
             </h6>
           )}
         </div>

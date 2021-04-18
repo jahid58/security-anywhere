@@ -8,8 +8,8 @@ import hiringBg from '../../../images/hiring-bg.jpg'
 const HiringList = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [hiredService, setHiredService] = useState([]);
-  const [statusData, setStatusData] = useState([]);
   const history = useHistory();
+
   useEffect(() => {
     fetch("https://fierce-garden-72152.herokuapp.com/hiredServices", {
       method: "POST",
@@ -18,10 +18,8 @@ const HiringList = () => {
     })
       .then((res) => res.json())
       .then((data) => setHiredService(data));
-    fetch("https://fierce-garden-72152.herokuapp.com/getServiceStatus")
-      .then((res) => res.json())
-      .then((data) => setStatusData(data));
-  }, [history]);
+  }, [history,loggedInUser.email]);
+
   return (
     <div className="row"  style={{background:`url(${hiringBg})`,backgroundSize:'cover',height:'100vh',width:'100%' }} >
       <div className="col-md-3">
@@ -40,7 +38,6 @@ const HiringList = () => {
             hiredService.map((service) => (
               <HiredCard
                 hired={service}
-                statuses={statusData}
                 key={service._id}
               ></HiredCard>
             ))}

@@ -1,18 +1,23 @@
-.headings{
+.dashboard{
     height: 100vh;
-    background-color: rgb(216, 229, 233);
+    background: linear-gradient(45deg, #6b6c7a , #004e92);
     padding: 5%;
 }
-.headings > .btn{
-color: #301805;
-font-weight: 600;
+.dashboard > .btn{
+color: #f7f7f3;
+font-weight: 900;
+margin: 5px;
+}
+.dashboard > .btn:hover{
+    background-color: rgb(4, 39, 10);
+    color: white;
 }
 .content_bg{
 background: linear-gradient(45deg, #6b6c7a , #004e92);
    
 }
 @media screen and (max-width: 480px) {
-    .headings {
+    .dashboard {
      height: 250px;
      text-align: center;
     }

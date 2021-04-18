@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useContext } from "react";
-import jwt_decode from "jwt-decode";
 import { UserContext } from "../../../App";
 
 const PrivateRoute = ({ children, ...rest }) => {
