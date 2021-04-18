@@ -1,3 +1,5 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import img from "../../../images/avatar.png";
 import "./Testimonials.css";
@@ -17,7 +19,7 @@ const Testimonial = ({ review }) => {
         <img className="mx-3" src={img} alt="" width="60" />
         <div>
           <h6 className="text-white">{name}</h6>
-          <p className="m-0">{email}</p>
+          <p className="m-0">{email}</p><p>ratings: {ratings} <FontAwesomeIcon icon={faStar}/> </p>
         </div>
       </div>
     </div>
