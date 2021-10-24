@@ -6,27 +6,26 @@ import Sidebar from "../Sidebar/Sidebar";
 
 const Hire = () => {
   const { id } = useParams();
-  const [loggedInUser,setLoggedInUser] =useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [serviceData, setServiceData] = useState({});
   const [clientData, setClientData] = useState({});
-  const history = useHistory()
+  const history = useHistory();
   useEffect(() => {
     fetch("https://fierce-garden-72152.herokuapp.com/getService/" + id)
       .then((res) => res.json())
-      .then((data) =>{
+      .then((data) => {
         const userInfo = {
           name: loggedInUser.name,
           email: loggedInUser.email,
           service: data.name,
           hiredPrice: data.price,
-          status:'Pending'
-        }
-   setClientData({ ...userInfo });
-        setServiceData(data)
-      })
-     
+          status: "Pending",
+        };
+        setClientData({ ...userInfo });
+        setServiceData(data);
+      });
   }, []);
-  
+
   return (
     <div className="row bg-light">
       <div className="col-md-4">
@@ -34,7 +33,7 @@ const Hire = () => {
       </div>
 
       <div className="user col-md-4 p-5">
-      <h4 className="my-3 text-primary">Hire Us</h4>
+        <h4 className="my-3 text-primary">Hire Us</h4>
         <form action="">
           <input
             type="text"
@@ -59,10 +58,11 @@ const Hire = () => {
           />
           {/* <input type="submit" value='submit your data' className='btn bg-primary' name='submit'/> */}
         </form>
-        <p className='text-primary'>Your service charged will be $ {serviceData.price} </p>
+        <p className="text-primary">
+          Your service charged will be $ {serviceData.price}{" "}
+        </p>
         <h5>Pay with</h5>
         <div class="form-check">
-          
           <input
             class="form-check-input"
             type="radio"

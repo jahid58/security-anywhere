@@ -32,16 +32,16 @@
   text-align: center;
 }
 
-.animation:hover .image {
+.service:hover .image {
   opacity: 0.3;
 }
 
-.animation:hover .middle {
+.service:hover .middle {
   opacity: 1;
 }
 
 .text {
-  color: rgb(3, 70, 14);
+  color: rgb(10, 15, 11);
   font-size: 25px;
   font-weight: 900;
 }

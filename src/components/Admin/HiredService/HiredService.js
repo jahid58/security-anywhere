@@ -46,7 +46,7 @@ const HiredService = () => {
           <thead>
             <tr>
               <th className="text-secondary text-left" scope="col">
-                Sr No
+                Sr No.
               </th>
               <th className="text-secondary" scope="col">
                 Service name
@@ -64,12 +64,7 @@ const HiredService = () => {
           </thead>
           <tbody className="text-center">
             {!hiredService.length && (
-              <Loader
-                type="Circles"
-                color="#00BFFF"
-                height={100}
-                width={100}
-              ></Loader>
+              <p className="mt-5">Only admin can see this list</p>
             )}
             {hiredService.length &&
               hiredService.map((service, index) => (

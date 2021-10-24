@@ -1,0 +1,29 @@
+.topBar {
+  height: 80px;
+  font-size: 16px;
+  background-color: #274b4f;
+}
+.logo {
+  color: white;
+  margin-right: 20px;
+}
+.menu-item {
+  color: rgb(252, 248, 248);
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 600;
+  padding: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  z-index: 50;
+}
+@media only screen and (max-width: 1020px) {
+  .topBar {
+    height: 100%;
+  }
+  .menu-item {
+    width: fit-content;
+    padding-left: 0;
+    margin-left: 0;
+  }
+}

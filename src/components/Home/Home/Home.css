@@ -12,11 +12,7 @@
 }
 
 .headers {
-  background: url("../../../images/login_bg.jpg");
-  background-position: center center;
-  background-size: cover;
-  position: relative;
-  z-index: 0;
+  background-color: #022335;
 }
 .headers::before {
   z-index: -1;

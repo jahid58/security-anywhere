@@ -13,8 +13,8 @@ const Testimonials = () => {
   return (
     <section className="testimonials py-5">
       <div className="review">
-        <div className="section-header text-center">
-          <h2>
+        <div className="section-header  text-center">
+          <h2 className="text-white">
             What Our Client <br /> Says{" "}
           </h2>
         </div>

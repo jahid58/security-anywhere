@@ -38,10 +38,12 @@ const Login = () => {
   };
 
   return (
-    <div className="p-5 d-flex justify-content-center align-items-center bg-light">
-      <div className="shadow p-5 text-center rounded">
-        {" "}
-        <h2 className="text-success">Security Anywhere</h2>
+    <div className="p-5 d-flex justify-content-center align-items-center ">
+      <div
+        className="shadow p-5 text-center text-white rounded"
+        style={{ backgroundColor: "#022335" }}
+      >
+        <h2 className="text-white">Security Anywhere</h2>
         <img src={logo} style={{ width: "60px" }} alt="" />
         <h3> Login With </h3>
         <button className="btn btn-secondary " onClick={handleGoogleSignIn}>

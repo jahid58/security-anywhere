@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/TopBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home/Home";
 import { createContext, useState } from "react";
@@ -38,7 +38,7 @@ function App() {
             <HiringList></HiringList>
           </PrivateRoute>
           <PrivateRoute path="/admin">
-            <HiredService></HiredService>
+            <AddService></AddService>
           </PrivateRoute>
           <PrivateRoute path="/hire/:id">
             <Hire />

@@ -12,9 +12,10 @@ const Home = () => {
   return (
     <div className="headers">
       <Header></Header>
-      <AboutUs></AboutUs>
+
       <Services></Services>
       <Testimonials></Testimonials>
+      <AboutUs></AboutUs>
       <ContactForm></ContactForm>
       <Footer></Footer>
     </div>
